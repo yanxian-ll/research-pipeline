@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-06-12
+
+### Added
+- **基于代码编写论文方法功能**：自动分析代码仓库，生成论文方法部分草稿
+- 代码结构识别：自动扫描模型、损失、数据处理、训练模块
+- 技术细节提取：从代码中提取架构、损失、训练配置等信息
+- 方法草稿生成：在 `drafts/method_draft.md` 生成结构化方法章节
+- 分析模板：提供模型架构、损失函数、训练细节的分析模板
+
+### Changed
+- 更新核心流程：新增"基于代码编写论文方法"步骤
+- 更新命令参考：添加代码分析相关命令
+
+### Fixed
+- 无
+
 ## [1.3.0] - 2026-06-12
 
 ### Added
