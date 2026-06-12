@@ -11,6 +11,8 @@
 - **Idea 分析**: 使用 Socratic 对话评估研究想法的创新性、可行性
 - **日报/周报**: 支持自动总结、文献阅读日报、常规日报
 - **代码分析写作**: 基于代码自动生成论文方法部分草稿
+- **LaTeX模板管理**: 自动查找并下载目标期刊/会议的LaTeX模板
+- **交互式论文编写**: 基于模板和项目内容逐章节交互式编写
 - **论文撰写**: 根据目标会议自动选择合适的写作技能
 - **进度追踪**: 维护项目进度日志
 - **GitHub 集成**: 克隆第三方代码仓库，方便阅读和复现
@@ -322,13 +324,87 @@ gh auth login
 基于代码编写论文方法
 
 系统执行：
-1. 扫描 third_party/generate-dom/ 代码结构
-2. 分析模型文件：Pi3XWorldTranslation
-3. 分析损失文件：world_frame_losses.py
-4. 分析训练脚本：pi3x_zup_translation_absolute_finetuning.sh
-5. 分析配置文件：pi3x_world_translation.yaml
+1. 扫描 third_party/<repo-name>/ 代码结构
+2. 分析模型文件：<model_class>.py
+3. 分析损失文件：<loss_function>.py
+4. 分析训练脚本：<train_script>.sh
+5. 分析配置文件：<config>.yaml
 6. 生成 drafts/method_draft.md
 7. 更新 progress.md
+```
+
+## 📄 LaTeX模板与交互式论文编写
+
+### 功能说明
+自动查找目标期刊/会议的LaTeX模板，并基于项目内容交互式编写论文。
+
+### 使用方法
+
+#### 1. 自动查找模板
+```
+查找目标期刊的latex模板
+```
+
+系统会：
+1. 读取 `meta.md` 获取目标会议/期刊
+2. 自动下载对应的LaTeX模板
+3. 保存到 `drafts/latex/`
+
+#### 2. 交互式编写论文
+```
+使用模板写论文
+交互式编写论文
+```
+
+系统会：
+1. 读取项目所有已有内容
+2. 逐章节交互式编写
+3. 生成完整的LaTeX论文
+
+#### 3. 手动指定模板
+```
+设置论文模板 /path/to/template
+```
+
+### 模板查找策略
+
+| 期刊/会议 | 模板类型 | 获取方式 |
+|-----------|----------|----------|
+| CVPR/ICCV/ECCV | cvpr.sty | 官方GitHub |
+| NeurIPS/ICML | neurips_2024.sty | 官方GitHub |
+| IEEE TGRS | IEEEtran.cls | CTAN |
+| Nature | nature.tex | 官方网站 |
+| ACM | ACM-Reference-Format.bst | CTAN |
+
+### 交互式编写流程
+
+```
+系统：目标期刊是 CVPR 2026，正在下载模板...
+系统：模板已下载到 drafts/latex/
+系统：开始编写 Abstract，请确认以下内容：
+      - 研究问题：[从meta.md提取]
+      - 主要贡献：[从meta.md提取]
+      - 关键结果：[从experiments/提取]
+      
+用户：修改研究问题的表述...
+
+系统：Abstract 已更新，继续编写 Introduction？
+      [1. 背景介绍]
+      [2. 现有方法 limitations]
+      [3. 我们的方法]
+      [4. 贡献列表]
+```
+
+### 示例
+```
+查找目标期刊的latex模板
+
+系统执行：
+1. 读取 meta.md：目标会议为 CVPR 2026
+2. 下载 CVPR 2024 官方模板
+3. 解压到 drafts/latex/cvpr2024/
+4. 生成基础结构：main.tex, sections/, figures/
+5. 提示开始交互式编写
 ```
 
 ## 🔗 与其他技能的集成

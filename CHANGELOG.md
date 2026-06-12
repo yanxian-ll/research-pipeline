@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-06-12
+
+### Added
+- **LaTeX模板自动查找功能**：自动下载目标期刊/会议的LaTeX模板
+- **交互式论文编写功能**：基于模板和项目内容交互式编写论文
+- 模板来源支持：官方模板、Overleaf模板库、GitHub模板
+- 交互式章节编写：逐章节确认和修改
+- 项目内容自动填充：基于meta.md、direction.md、literature/等生成初稿
+- 手动模板指定：支持指定自定义模板路径
+
+### Changed
+- 更新核心流程：新增"LaTeX模板与论文编写"步骤
+- 更新命令参考：添加LaTeX模板和论文编写相关命令
+
+### Fixed
+- 无
+
 ## [1.4.0] - 2026-06-12
 
 ### Added

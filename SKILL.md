@@ -653,16 +653,136 @@ $$\mathcal{L} = \alpha \mathcal{L}_1 + \beta \mathcal{L}_2 + \gamma \mathcal{L}_
 用户：基于代码编写论文方法
 
 系统执行：
-1. 扫描 third_party/generate-dom/ 代码结构
-2. 分析模型文件：Pi3XWorldTranslation
-3. 分析损失文件：world_frame_losses.py
-4. 分析训练脚本：pi3x_zup_translation_absolute_finetuning.sh
-5. 分析配置文件：pi3x_world_translation.yaml
+1. 扫描 third_party/<repo-name>/ 代码结构
+2. 分析模型文件：<model_class>.py
+3. 分析损失文件：<loss_function>.py
+4. 分析训练脚本：<train_script>.sh
+5. 分析配置文件：<config>.yaml
 6. 生成 drafts/method_draft.md
 7. 更新 progress.md
 ```
 
-### 7. 论文撰写
+### 7. LaTeX模板与论文编写
+
+```
+用户：查找目标期刊的latex模板
+用户：使用模板写论文
+用户：交互式编写论文
+```
+
+#### 功能说明
+
+自动查找目标期刊/会议的LaTeX模板，并基于项目内容交互式编写论文。支持：
+- 自动查找期刊/会议LaTeX模板
+- 手动指定模板路径
+- 交互式逐章节编写
+- 基于项目已有内容填充
+
+#### 命令
+
+| 命令 | 说明 |
+|------|------|
+| `查找目标期刊的latex模板` | 自动下载目标期刊的LaTeX模板 |
+| `使用模板写论文` | 基于模板交互式编写论文 |
+| `交互式编写论文` | 同上，更口语化 |
+| `设置论文模板 <path>` | 手动指定模板路径 |
+
+#### 执行步骤
+
+**Step 1: 获取目标期刊/会议信息**
+
+```
+1. 读取 meta.md 获取目标会议/期刊
+2. 读取 direction.md 获取研究方向
+3. 如果未设置，交互式询问：
+   - 目标期刊/会议名称
+   - 论文类型（full paper/short paper/letter）
+```
+
+**Step 2: 查找LaTeX模板**
+
+```bash
+# 自动查找常见期刊/会议模板
+# CVPR/ICCV/ECCV: 使用官方模板
+# IEEE系列: 使用IEEEtran
+# Nature系列: 使用nature模板
+# ACM系列: 使用ACM模板
+```
+
+模板来源：
+- **官方模板**: 期刊/会议官网提供的LaTeX模板
+- **Overleaf模板**: Overleaf模板库
+- **GitHub模板**: 社区维护的模板
+
+**Step 3: 下载并配置模板**
+
+```
+1. 下载模板到 drafts/latex/
+2. 解压并配置
+3. 生成基础结构：
+   - main.tex（主文件）
+   - sections/（章节目录）
+   - figures/（图片目录）
+   - references.bib（参考文献）
+```
+
+**Step 4: 交互式论文编写**
+
+```
+用户：使用模板写论文
+
+系统执行：
+1. 读取项目所有已有内容：
+   - meta.md（研究问题、贡献）
+   - direction.md（研究背景、技术栈）
+   - idea.md（研究想法）
+   - literature/synthesis.md（文献综述）
+   - experiments/（实验结果）
+   - drafts/method_draft.md（方法草稿）
+
+2. 交互式编写每个章节：
+   - Abstract: 基于meta.md生成
+   - Introduction: 基于direction.md生成
+   - Related Work: 基于literature/生成
+   - Method: 基于method_draft.md生成
+   - Experiments: 基于experiments/生成
+   - Conclusion: 综合生成
+
+3. 逐章节确认和修改
+```
+
+#### 模板查找策略
+
+| 期刊/会议 | 模板类型 | 获取方式 |
+|-----------|----------|----------|
+| CVPR/ICCV/ECCV | cvpr.sty | 官方GitHub |
+| NeurIPS/ICML | neurips_2024.sty | 官方GitHub |
+| IEEE TGRS | IEEEtran.cls | CTAN |
+| Nature | nature.tex | 官方网站 |
+| ACM | ACM-Reference-Format.bst | CTAN |
+
+#### 交互式编写流程
+
+```
+系统：目标期刊是 CVPR 2026，正在下载模板...
+系统：模板已下载到 drafts/latex/
+系统：开始编写 Abstract，请确认以下内容：
+      - 研究问题：[从meta.md提取]
+      - 主要贡献：[从meta.md提取]
+      - 关键结果：[从experiments/提取]
+      
+用户：修改研究问题的表述...
+
+系统：Abstract 已更新，继续编写 Introduction？
+      [1. 背景介绍]
+      [2. 现有方法 limitations]
+      [3. 我们的方法]
+      [4. 贡献列表]
+      
+用户：开始编写 Introduction...
+```
+
+### 8. 论文撰写（完整流程）
 
 ```
 用户：开始写论文 / 撰写论文
@@ -934,6 +1054,10 @@ git clone https://github.com/<username>/<project-id>.git projects/<project-id>
 | **`基于代码编写论文方法`** | **分析代码仓库，生成方法部分草稿** |
 | **`分析代码写方法部分`** | **同上，更口语化的表达** |
 | **`从代码生成方法章节`** | **同上** |
+| **`查找目标期刊的latex模板`** | **自动下载目标期刊的LaTeX模板** |
+| **`使用模板写论文`** | **基于模板交互式编写论文** |
+| **`交互式编写论文`** | **同上，更口语化的表达** |
+| **`设置论文模板 <path>`** | **手动指定模板路径** |
 | `开始写论文` | 启动论文撰写流程 |
 | `项目进度` | 显示当前项目状态 |
 | `列出项目` | 显示所有项目 |
