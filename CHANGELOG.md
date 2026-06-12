@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-06-12
+
+### Added
+- **GitHub 集成功能**：支持克隆第三方代码仓库到项目
+- 浅克隆加速：使用 `--depth 1` 减少下载时间
+- GitHub CLI 认证管理：自动检查和引导认证
+- 第三方代码管理：查看依赖、同步更新
+- 自动 .gitignore：确保 third_party/ 不会被提交
+
+### Changed
+- 更新目录结构：添加 `third_party/` 目录
+- 更新工作流：添加 GitHub 集成步骤
+- 更新命令参考：添加 GitHub 相关命令
+
+### Fixed
+- 无
+
 ## [1.1.0] - 2026-06-12
 
 ### Added

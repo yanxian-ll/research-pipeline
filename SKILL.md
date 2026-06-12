@@ -22,6 +22,7 @@ research-hub/
 │       │   └── synthesis.md    # 文献综合分析
 │       ├── experiments/        # 实验记录
 │       ├── drafts/             # 论文草稿
+│       ├── third_party/        # 【新增】第三方代码仓库（git clone）
 │       └── progress.md         # 项目进度日志
 ├── daily/                       # 日报
 │   └── YYYY-MM-DD.md
@@ -506,6 +507,82 @@ research-hub/
 - 实验设计评审，调整评估指标
 ```
 
+### 8. GitHub 集成（第三方代码管理）
+
+```
+用户：连接 github https://github.com/user/repo
+用户：拉取代码 https://github.com/user/repo
+用户：同步 github
+```
+
+#### 功能说明
+
+支持将第三方代码仓库克隆到项目目录中，方便：
+- 阅读和分析相关代码
+- 复现实验结果
+- 基于现有代码进行改进
+- 管理项目依赖
+
+#### 命令
+
+| 命令 | 说明 |
+|------|------|
+| `连接 github <url>` | 克隆第三方仓库到项目 |
+| `拉取代码 <url>` | 同上，更口语化的表达 |
+| `同步 github` | 更新所有第三方仓库 |
+| `查看依赖` | 列出所有已克隆的第三方仓库 |
+
+#### 执行步骤
+
+**Step 1: 检查 GitHub CLI 认证**
+
+```bash
+# 检查 gh 是否已安装和认证
+gh auth status
+```
+
+如果没有认证，引导用户：
+```bash
+gh auth login
+```
+
+**Step 2: 克隆仓库**
+
+```bash
+# 使用浅克隆加速（推荐）
+git clone --depth 1 <repository-url> <project-path>/third_party/<repo-name>
+```
+
+**Step 3: 更新项目配置**
+
+1. 在 `direction.md` 的"关键参考文献"中添加代码仓库信息
+2. 在 `progress.md` 中记录克隆操作
+
+#### 克隆位置
+
+第三方代码统一克隆到：
+```
+projects/<project-id>/third_party/<repo-name>/
+```
+
+#### 安全管理
+
+1. **自动添加 .gitignore**: 确保 `third_party/` 目录不会被提交到项目仓库
+2. **浅克隆**: 使用 `--depth 1` 减少下载时间
+3. **认证管理**: 使用 GitHub CLI 管理认证，避免暴露 Token
+
+#### 示例
+
+```
+用户：连接 github https://github.com/facebookresearch/map-anything
+
+系统执行：
+1. 检查 gh auth status → 已认证
+2. git clone --depth 1 https://github.com/facebookresearch/map-anything.git projects/feedforward-3d-reconstruction/third_party/map-anything
+3. 更新 direction.md：添加 MapAnything 作为关键参考代码
+4. 更新 progress.md：记录克隆操作
+```
+
 ## 智能特性
 
 ### 上下文感知
@@ -588,6 +665,10 @@ research-hub/
 | `开始写论文` | 启动论文撰写流程 |
 | `项目进度` | 显示当前项目状态 |
 | `列出项目` | 显示所有项目 |
+| `连接 github <url>` | 克隆第三方仓库到项目 |
+| `拉取代码 <url>` | 同上，更口语化的表达 |
+| `同步 github` | 更新所有第三方仓库 |
+| `查看依赖` | 列出所有已克隆的第三方仓库 |
 
 ## 使用示例
 

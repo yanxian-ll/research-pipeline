@@ -12,6 +12,7 @@
 - **日报/周报**: 支持自动总结、文献阅读日报、常规日报
 - **论文撰写**: 根据目标会议自动选择合适的写作技能
 - **进度追踪**: 维护项目进度日志
+- **GitHub 集成**: 克隆第三方代码仓库，方便阅读和复现
 
 ### 🤖 智能特性
 - **研究方向感知**: 自动读取 `direction.md`，理解研究目标和技术栈
@@ -60,6 +61,7 @@ research-hub/
 │       │   └── synthesis.md    # 文献综合分析
 │       ├── experiments/        # 实验记录
 │       ├── drafts/             # 论文草稿
+│       ├── third_party/        # 第三方代码仓库（git clone）
 │       └── progress.md         # 项目进度日志
 ├── daily/                       # 日报
 │   └── YYYY-MM-DD.md
@@ -94,6 +96,10 @@ research-hub/
 | `开始写论文` | 启动论文撰写流程 |
 | `项目进度` | 显示当前项目状态 |
 | `列出项目` | 显示所有项目 |
+| `连接 github <url>` | 克隆第三方仓库到项目 |
+| `拉取代码 <url>` | 同上，更口语化的表达 |
+| `同步 github` | 更新所有第三方仓库 |
+| `查看依赖` | 列出所有已克隆的第三方仓库 |
 
 ## 📊 日报功能
 
@@ -111,6 +117,61 @@ research-hub/
 2. 提取核心贡献、方法、关键结果
 3. 评估与当前项目的关联度
 4. 生成结构化日报并保存文献笔记
+
+## 🔗 GitHub 集成
+
+### 功能说明
+支持将第三方代码仓库克隆到项目目录中，方便：
+- 阅读和分析相关代码
+- 复现实验结果
+- 基于现有代码进行改进
+- 管理项目依赖
+
+### 使用方法
+
+#### 1. 首次使用：认证 GitHub
+```bash
+# 安装 GitHub CLI（如果未安装）
+winget install GitHub.cli
+
+# 登录认证
+gh auth login
+```
+
+#### 2. 克隆第三方仓库
+```
+连接 github https://github.com/user/repo
+拉取代码 https://github.com/user/repo
+```
+
+系统会：
+1. 检查 GitHub CLI 认证状态
+2. 使用浅克隆（`--depth 1`）加速下载
+3. 克隆到 `projects/<project-id>/third_party/<repo-name>/`
+4. 更新 `direction.md` 添加代码仓库信息
+5. 记录到 `progress.md`
+
+#### 3. 管理第三方仓库
+```
+同步 github          # 更新所有第三方仓库
+查看依赖            # 列出所有已克隆的第三方仓库
+```
+
+### 安全管理
+- **自动 .gitignore**: 确保 `third_party/` 不会被提交到项目仓库
+- **浅克隆**: 使用 `--depth 1` 减少下载时间
+- **认证管理**: 使用 GitHub CLI 管理认证，避免暴露 Token
+
+### 示例
+```
+连接 github https://github.com/facebookresearch/map-anything
+
+系统执行：
+1. 检查 gh auth status → 已认证
+2. git clone --depth 1 https://github.com/facebookresearch/map-anything.git projects/feedforward-3d-reconstruction/third_party/map-anything
+3. 更新 direction.md：添加 MapAnything 作为关键参考代码
+4. 更新 progress.md：记录克隆操作
+```
 
 ## 🔗 与其他技能的集成
 
