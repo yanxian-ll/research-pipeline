@@ -44,6 +44,7 @@ research-hub/
 
 ```
 用户：新建研究项目「XXX」
+用户：新建研究项目「XXX」并上传 github
 ```
 
 执行步骤：
@@ -52,6 +53,43 @@ research-hub/
 3. 生成空的 `direction.md`（研究方向配置）
 4. 生成空的 `idea.md`、目录结构
 5. 更新 `active-project.md` 指向当前活跃项目
+6. **（可选）创建 GitHub 仓库并推送**
+
+#### GitHub 仓库创建（可选）
+
+如果用户要求上传到 GitHub，执行以下步骤：
+
+```bash
+# 1. 初始化 Git 仓库
+cd projects/<project-id>
+git init
+
+# 2. 创建 .gitignore
+cat > .gitignore << 'EOF'
+# 第三方代码
+third_party/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.log
+EOF
+
+# 3. 提交初始文件
+git add .
+git commit -m "Initial commit: <project-name>"
+
+# 4. 创建 GitHub 仓库并推送
+gh repo create <project-id> --private --source=. --push
+```
+
+**注意事项**：
+- 默认创建 **private** 仓库，保护研究隐私
+- 使用 `gh auth login` 进行认证
+- 自动添加 `.gitignore` 排除 `third_party/` 目录
 
 ### 1.5 研究方向配置（快速了解项目）
 
@@ -583,6 +621,88 @@ projects/<project-id>/third_party/<repo-name>/
 4. 更新 progress.md：记录克隆操作
 ```
 
+### 9. 项目 GitHub 同步（推荐）
+
+```
+用户：同步项目到 github
+用户：推送项目
+用户：备份项目
+```
+
+#### 功能说明
+
+将研究项目推送到 GitHub 进行在线备份和同步，方便：
+- 跨设备同步研究进度
+- 在线查看和管理项目
+- 与合作者共享（可选）
+- 防止数据丢失
+
+#### 命令
+
+| 命令 | 说明 |
+|------|------|
+| `同步项目到 github` | 将当前项目推送到 GitHub |
+| `推送项目` | 同上，更口语化的表达 |
+| `备份项目` | 同上 |
+| `克隆项目 <url>` | 从 GitHub 克隆已有项目 |
+| `拉取项目` | 更新本地项目到最新版本 |
+
+#### 执行步骤
+
+**同步项目到 GitHub**
+
+```bash
+# 1. 检查是否已初始化 Git
+cd projects/<project-id>
+git status
+
+# 2. 如果未初始化，执行初始化
+git init
+git add .
+git commit -m "Update: $(date +%Y-%m-%d)"
+
+# 3. 检查远程仓库
+git remote -v
+
+# 4. 如果未设置远程仓库，创建并推送
+gh repo create <project-id> --private --source=. --push
+
+# 5. 如果已设置远程仓库，直接推送
+git push
+```
+
+**克隆项目从 GitHub**
+
+```bash
+# 1. 检查 GitHub CLI 认证
+gh auth status
+
+# 2. 克隆项目
+git clone https://github.com/<username>/<project-id>.git projects/<project-id>
+
+# 3. 更新 active-project.md
+```
+
+#### 安全管理
+
+1. **默认 private**: 项目仓库默认为私有，保护研究隐私
+2. **排除第三方代码**: `.gitignore` 自动排除 `third_party/` 目录
+3. **认证管理**: 使用 GitHub CLI 管理认证
+
+#### 示例
+
+```
+用户：同步项目到 github
+
+系统执行：
+1. 检查 gh auth status → 已认证
+2. cd projects/feedforward-3d-reconstruction
+3. git init（如未初始化）
+4. git add .
+5. git commit -m "Update: 2026-06-12"
+6. gh repo create feedforward-3d-reconstruction --private --source=. --push
+```
+
 ## 智能特性
 
 ### 上下文感知
@@ -651,6 +771,7 @@ projects/<project-id>/third_party/<repo-name>/
 | 命令 | 说明 |
 |------|------|
 | `新建项目 <name>` | 初始化研究项目 |
+| `新建项目 <name> 并上传 github` | 初始化项目并创建 GitHub 仓库 |
 | `切换项目 <name>` | 切换活跃项目 |
 | `设置研究方向` | 交互式配置研究方向 |
 | `更新研究方向 <字段>: <值>` | 更新研究方向的特定字段 |
@@ -669,6 +790,11 @@ projects/<project-id>/third_party/<repo-name>/
 | `拉取代码 <url>` | 同上，更口语化的表达 |
 | `同步 github` | 更新所有第三方仓库 |
 | `查看依赖` | 列出所有已克隆的第三方仓库 |
+| **`同步项目到 github`** | **将当前项目推送到 GitHub** |
+| **`推送项目`** | **同上，更口语化的表达** |
+| **`备份项目`** | **同上** |
+| **`克隆项目 <url>`** | **从 GitHub 克隆已有项目** |
+| **`拉取项目`** | **更新本地项目到最新版本** |
 
 ## 使用示例
 

@@ -13,6 +13,7 @@
 - **论文撰写**: 根据目标会议自动选择合适的写作技能
 - **进度追踪**: 维护项目进度日志
 - **GitHub 集成**: 克隆第三方代码仓库，方便阅读和复现
+- **项目同步**: 支持将项目推送到 GitHub 进行在线备份和同步
 
 ### 🤖 智能特性
 - **研究方向感知**: 自动读取 `direction.md`，理解研究目标和技术栈
@@ -32,19 +33,31 @@
 新建项目「基于 Transformer 的遥感影像分类」
 ```
 
+**推荐**: 创建项目时同时上传到 GitHub，方便同步和备份
+```
+新建项目「基于 Transformer 的遥感影像分类」并上传 github
+```
+
 ### 3. 设置研究方向（重要！）
 ```
 设置研究方向
 ```
 交互式配置研究背景、问题、技术栈、目标等。
 
-### 4. 开始使用
+### 4. 连接第三方代码
+```
+连接 github https://github.com/facebookresearch/map-anything
+```
+克隆相关代码仓库到项目中，方便阅读和复现。
+
+### 5. 开始使用
 ```
 写日报                    # 自动总结今日工作
 写日报 论文A 论文B         # 文献阅读日报
 查找文献 Vision Transformer  # 文献搜索
 分析 idea                  # Idea 分析
 开始写论文                 # 论文撰写
+同步项目到 github          # 推送项目到 GitHub
 ```
 
 ## 📁 目录结构
@@ -82,6 +95,7 @@ research-hub/
 | 命令 | 说明 |
 |------|------|
 | `新建项目 <name>` | 初始化研究项目 |
+| `新建项目 <name> 并上传 github` | 初始化项目并创建 GitHub 仓库 |
 | `切换项目 <name>` | 切换活跃项目 |
 | `设置研究方向` | 交互式配置研究方向 |
 | `更新研究方向 <字段>: <值>` | 更新研究方向的特定字段 |
@@ -100,6 +114,11 @@ research-hub/
 | `拉取代码 <url>` | 同上，更口语化的表达 |
 | `同步 github` | 更新所有第三方仓库 |
 | `查看依赖` | 列出所有已克隆的第三方仓库 |
+| **`同步项目到 github`** | **将当前项目推送到 GitHub** |
+| **`推送项目`** | **同上，更口语化的表达** |
+| **`备份项目`** | **同上** |
+| **`克隆项目 <url>`** | **从 GitHub 克隆已有项目** |
+| **`拉取项目`** | **更新本地项目到最新版本** |
 
 ## 📊 日报功能
 
@@ -171,6 +190,66 @@ gh auth login
 2. git clone --depth 1 https://github.com/facebookresearch/map-anything.git projects/feedforward-3d-reconstruction/third_party/map-anything
 3. 更新 direction.md：添加 MapAnything 作为关键参考代码
 4. 更新 progress.md：记录克隆操作
+```
+
+## 🔄 项目 GitHub 同步（推荐）
+
+### 功能说明
+将研究项目推送到 GitHub 进行在线备份和同步，方便：
+- 跨设备同步研究进度
+- 在线查看和管理项目
+- 与合作者共享（可选）
+- 防止数据丢失
+
+### 使用方法
+
+#### 1. 创建项目时同时上传（推荐）
+```
+新建项目「基于 Transformer 的遥感影像分类」并上传 github
+```
+
+系统会：
+1. 创建项目目录和文件
+2. 初始化 Git 仓库
+3. 创建 `.gitignore` 排除 `third_party/` 等目录
+4. 创建 GitHub 私有仓库
+5. 推送初始文件
+
+#### 2. 同步已有项目到 GitHub
+```
+同步项目到 github
+推送项目
+备份项目
+```
+
+系统会：
+1. 检查项目是否已初始化 Git
+2. 添加所有更改并提交
+3. 创建 GitHub 仓库（如果不存在）
+4. 推送到 GitHub
+
+#### 3. 从 GitHub 克隆项目
+```
+克隆项目 https://github.com/username/project-id.git
+拉取项目
+```
+
+### 安全管理
+- **默认 private**: 项目仓库默认为私有，保护研究隐私
+- **排除第三方代码**: `.gitignore` 自动排除 `third_party/` 目录
+- **认证管理**: 使用 GitHub CLI 管理认证
+
+### 示例
+```
+同步项目到 github
+
+系统执行：
+1. 检查 gh auth status → 已认证
+2. cd projects/feedforward-3d-reconstruction
+3. git init（如未初始化）
+4. git add .
+5. git commit -m "Update: 2026-06-12"
+6. gh repo create feedforward-3d-reconstruction --private --source=. --push
 ```
 
 ## 🔗 与其他技能的集成

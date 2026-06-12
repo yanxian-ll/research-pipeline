@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-06-12
+
+### Added
+- **项目 GitHub 同步功能**：支持将研究项目推送到 GitHub 进行在线备份
+- **项目初始化时创建 GitHub 仓库**：`新建项目 X 并上传 github`
+- **项目克隆功能**：从 GitHub 克隆已有项目
+- **项目同步功能**：更新本地项目到最新版本
+- 默认创建 private 仓库，保护研究隐私
+
+### Changed
+- 更新目录结构：添加 `third_party/` 目录
+- 更新工作流：添加 GitHub 集成和项目同步步骤
+- 更新命令参考：添加项目同步相关命令
+
+### Fixed
+- 无
+
 ## [1.2.0] - 2026-06-12
 
 ### Added
