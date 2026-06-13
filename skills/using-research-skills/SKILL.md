@@ -1,55 +1,86 @@
 ---
 name: using-research-skills
-description: Discovers and invokes research workflow skills. Use when starting a research session, routing a research task, or deciding which skill applies to idea refinement, literature grounding, gap analysis, framework design, experiments, writing, logs, review, or submission.
+description: Discovers and invokes research workflow skills while deciding whether work is independent, idea-linked, or project-linked. Use when starting a research session or routing work across paper reading, literature grounding, GitHub repositories, code-to-idea extraction, novelty analysis, framework design, experiments, writing, logs, review, publication, or submission.
 ---
 
 # Using Research Skills
 
 ## Overview
 
-Research skills are organized by lifecycle stage. Use the smallest workflow that moves the research forward, then compose additional skills only when needed.
+Route work first by ownership scope, then by lifecycle stage and starting
+artifact. Researcher-level reading and summaries do not automatically belong to
+the most recently discussed project.
 
 ## When to Use
 
 - Starting a research session
-- The user’s request spans multiple research activities
-- You need to decide whether to use idea, literature, gap, framework, experiment, writing, log, review, or submission workflows
+- Starting from an existing local or GitHub repository
+- A request spans multiple research activities
+- The next workflow is unclear
 
 ## Workflow
 
-1. Map the task to the research lifecycle: define, ground, frame, verify, write, review, submit.
-2. State the selected skill or skill sequence.
-3. Surface assumptions if the task is ambiguous.
-4. Create or update the smallest useful artifact.
-5. End with verification and the next smallest useful action.
+1. Classify scope as independent, idea-linked, or project-linked.
+2. Treat generic paper reading, topic surveys, and researcher-level logs as
+   independent by default.
+3. Link work to an idea or project only when the user names it, requests
+   implications for it, or provides an object-local path.
+4. Conversation proximity, current working directory, or the existence of an
+   active project is not sufficient evidence of linkage.
+5. If ambiguity changes the output location or analysis, ask one concise scope
+   question. Otherwise proceed independently.
+6. Identify the starting object: paper/topic, repository, raw idea, framework,
+   experiments, draft, or submission.
+7. Map the task to: read/synthesize, acquire, extract/define, ground, frame,
+   verify, write, review, publish/submit.
+8. Use `paper-reading-and-synthesis` for independent paper reading, summaries,
+   comparisons, and topic surveys.
+9. Use `literature-grounding` when literature is being used to assess a named
+   idea or project's novelty, baselines, claims, or experiment design.
+10. For GitHub acquisition or publication, use
+    `github-repository-operations`; default clones to `--depth=1`.
+11. For existing code, use `code-to-research-idea`, then
+    `literature-grounding` and `gap-and-novelty-review` before asserting
+    novelty.
+12. For a Method section grounded in implementation, use
+    `research-method-writing`; use `evidence-based-writing` for other
+    evidence-grounded sections.
+13. State the selected scope, skill sequence, and assumptions.
+14. Create or update the smallest useful artifact in the matching scope.
+15. End with verification and the next smallest action.
 
 ## Artifacts
 
-- No mandatory artifact; may create a context packet or update `active-context.md`.
-
+- No mandatory artifact
+- Optional `active-context.md` or `context-packet.md`
 
 ## Common Rationalizations
 
 | Rationalization | Reality |
 |---|---|
-| “This is obvious.” | Obvious research decisions still need artifacts and acceptance criteria. |
-| “We can fill evidence later.” | Evidence changes the claim boundary; defer it only when labeled provisional. |
-| “The user wants confidence.” | The user needs useful truth. Surface risks and tradeoffs. |
-| “This step slows us down.” | A small gate now prevents expensive rework later. |
+| "This is obvious." | Research decisions still need artifacts and acceptance criteria. |
+| "We can fill evidence later." | Evidence changes the claim boundary. Label provisional content. |
+| "The code proves the paper." | Code supports implementation claims, not novelty or effectiveness by itself. |
+| "One skill should do everything." | Compose only the stages needed for the current task. |
+| "We were just discussing a project." | Nearby context does not authorize linking an independent reading task to that project. |
 
 ## Red Flags
 
 - Confident claims without evidence
+- Novelty asserted before closest-work search
+- Code claims without file or symbol anchors
 - No artifact created or updated
 - Missing next action
-- Scope expands beyond the user’s request
-- Weaknesses hidden instead of tracked
-- Decisions not traceable to literature, experiments, code, or logs
+- Repository operations without credential or sensitive-file checks
+- Independent paper notes written into a project
+- Unrequested "implications for the active project" sections
 
 ## Verification
 
-- [ ] The active artifact is named
-- [ ] Known facts, hypotheses, and plans are separated
-- [ ] Assumptions are surfaced when needed
+- [ ] Scope is classified as independent, idea-linked, or project-linked
+- [ ] The starting object and active artifact are named
+- [ ] Artifact location matches the scope
+- [ ] Facts, hypotheses, plans, and code inferences are separated
 - [ ] Evidence gaps are labeled
-- [ ] Next action is concrete and small
+- [ ] The selected skill sequence matches the lifecycle
+- [ ] The next action is concrete and small

@@ -1,13 +1,13 @@
 ---
 name: evidence-based-writing
-description: Writes research paper sections with traceable claims, citation discipline, and evidence mapping. Use when drafting related work, method, experiments, results, discussion, limitations, or rebuttal content.
+description: Writes research paper sections with traceable claims, citation discipline, and evidence mapping. Use when drafting related work, experiments, results, discussion, limitations, or rebuttal content; use research-method-writing when a Method section must be reconstructed and audited against an existing codebase.
 ---
 
 # Evidence Based Writing
 
 ## Overview
 
-Write paper sections from evidence instead of confidence. Every important claim traces to literature, code, experiment, or a labeled hypothesis.
+Write paper sections from evidence instead of confidence. Every important claim traces to literature, code, experiment, or a labeled hypothesis. Delegate code-aligned Method reconstruction to `research-method-writing`.
 
 ## When to Use
 

@@ -9,7 +9,8 @@ When a research task arrives, choose the smallest applicable workflow:
 ```text
 Need to decide what workflow applies?         → using-research-skills
 Raw idea / vague research direction?          → research-idea-refine
-Need literature / “has anyone done this?”     → literature-grounding
+Need to read/summarize/compare papers?        → paper-reading-and-synthesis
+Need prior work for a named idea/project?     → literature-grounding
 Need novelty, gap, go/pivot/stop?             → gap-and-novelty-review
 Need method / research framework?             → research-framework-design
 Need datasets, baselines, metrics?            → experiment-planning
@@ -28,5 +29,8 @@ Need submission/rebuttal readiness?           → research-submission-readiness
 3. Treat “novel” as unproven until closest-work search is complete.
 4. Keep logs independent from projects unless the user explicitly links them.
 5. Write concrete artifacts: `idea.md`, `literature-search.md`, `gap-analysis.md`, `framework.md`, `experiment-plan.md`, `paper-core.md`, `daily.md`, `weekly.md`.
+6. Do not infer a project link from conversation proximity, the current working
+   directory, or an active project. Independent reading must not receive an
+   unsolicited project-implications section.
 6. Every output should name the next smallest useful action.
 7. When evidence is missing, label statements as hypotheses, not facts.

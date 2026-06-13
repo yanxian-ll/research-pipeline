@@ -77,3 +77,27 @@ linked_ideas: []
 linked_papers: []
 tags: []
 ```
+
+## Code Evidence
+
+```yaml
+type: code_evidence
+project_id:
+idea_id:
+repository:
+commit:
+observed_claims: []
+inferred_claims: []
+unverified_claims: []
+```
+
+## Method Draft
+
+```yaml
+type: method_draft
+project_id:
+idea_id:
+target_venue:
+code_commit:
+status: draft | audited | ready
+```

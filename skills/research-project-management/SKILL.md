@@ -19,7 +19,7 @@ A project is an execution container, not the starting point for every thought. U
 
 1. Decide whether the object is ready to be a project: question, output, owner, next action, and scope.
 2. If not ready, keep it as an idea.
-3. Create project structure with meta, direction, roadmap, literature, experiments, code, drafts, reviews, and progress.
+3. Create project structure with meta, direction, roadmap, literature, experiments, code, drafts, reviews, and progress. Record repository URL, remote, branch, and commit when code is linked.
 4. Link active idea, relevant papers, framework, experiment plan, paper core, and decisions.
 5. Maintain roadmap with milestones, success criteria, risks, next actions, and stop/pivot triggers.
 6. Update progress with completed work, evidence/output, blocker, decision needed, and next action.
@@ -30,6 +30,7 @@ A project is an execution container, not the starting point for every thought. U
 - `projects/<project-id>/direction.md`
 - `projects/<project-id>/roadmap.md`
 - `projects/<project-id>/progress.md`
+- `projects/<project-id>/code/repository.md`
 
 
 ## Common Rationalizations

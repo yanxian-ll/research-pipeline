@@ -1,6 +1,6 @@
 ---
 name: research-log-review
-description: Maintains independent daily, weekly, monthly, and decision logs that can link to projects, ideas, papers, and outputs. Use when recording progress, reviewing a week, extracting decisions, or summarizing cross-project work.
+description: Maintains researcher-level daily, weekly, monthly, and decision logs with explicit separation between independent literature/work and project- or idea-linked activity. Use when recording progress, paper reading, reviewing a week, extracting decisions, or summarizing cross-project and non-project work.
 ---
 
 # Research Log Review
@@ -19,10 +19,20 @@ Logs are researcher-level memory, not just project status. They capture project 
 ## Workflow
 
 1. Choose log type: daily, weekly, monthly, or decision.
-2. Separate buckets: project-linked work, idea-linked work, literature, writing, experiment/code, non-project work, decisions, blockers, next actions.
-3. Link to projects, ideas, and papers only when meaningful.
-4. For weekly/monthly logs, extract repeated blockers, status changes, papers that changed direction, implicit decisions, outputs worth archiving, and next strategy.
-5. Create or update the correct log file.
+2. Classify each entry independently as unlinked, paper/topic-linked,
+   idea-linked, or project-linked.
+3. Default general paper reading, topic surveys, skill maintenance, and
+   researcher administration to unlinked or paper/topic-linked.
+4. Link an entry to a project only when the underlying task was explicitly
+   project-linked. Do not inherit linkage from adjacent conversation turns.
+5. Separate buckets: independent literature, project-linked work, idea-linked
+   work, writing, experiment/code, administration, decisions, blockers, and
+   next actions.
+6. Do not add project implications to independent literature entries.
+7. For weekly/monthly logs, extract repeated blockers, status changes, papers
+   that changed direction, implicit decisions, outputs worth archiving, and
+   next strategy while preserving original scope.
+8. Create or update the correct log file.
 
 ## Artifacts
 
@@ -49,10 +59,12 @@ Logs are researcher-level memory, not just project status. They capture project 
 - Scope expands beyond the user’s request
 - Weaknesses hidden instead of tracked
 - Decisions not traceable to literature, experiments, code, or logs
+- Independent reading silently attributed to the latest active project
 
 ## Verification
 
 - [ ] The active artifact is named
+- [ ] Every entry's linkage is justified by the originating task
 - [ ] Known facts, hypotheses, and plans are separated
 - [ ] Assumptions are surfaced when needed
 - [ ] Evidence gaps are labeled

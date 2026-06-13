@@ -1,14 +1,28 @@
 # Research Lifecycle
 
 ```text
-DEFINE → GROUND → FRAME → VERIFY → WRITE → REVIEW → SUBMIT
+ACQUIRE -> EXTRACT/DEFINE -> GROUND -> FRAME -> VERIFY
+        -> WRITE -> REVIEW -> PUBLISH/SUBMIT
 ```
+
+## ACQUIRE
+
+Clone or create a repository and verify local/remote state.
+
+- Local repository checkout
+- `projects/<project-id>/code/repository.md`
+
+## EXTRACT
+
+Inspect code and reconstruct traceable candidate research ideas.
+
+- `projects/<project-id>/code/code-evidence.md`
+- `ideas/<idea-id>/idea.md`
 
 ## DEFINE
 
-Capture and refine a raw idea into a research question.
+Refine a raw idea into a research question.
 
-Artifacts:
 - `ideas/<idea-id>/idea.md`
 - `ideas/<idea-id>/discussion.md`
 
@@ -16,7 +30,6 @@ Artifacts:
 
 Search literature and identify closest work.
 
-Artifacts:
 - `ideas/<idea-id>/literature-search.md`
 - `knowledge/papers/<paper-id>.md`
 - `projects/<project-id>/literature/matrix.md`
@@ -25,7 +38,6 @@ Artifacts:
 
 Turn the question and gap into a framework.
 
-Artifacts:
 - `ideas/<idea-id>/gap-analysis.md`
 - `ideas/<idea-id>/framework.md`
 
@@ -33,7 +45,6 @@ Artifacts:
 
 Plan experiments that can prove or falsify claims.
 
-Artifacts:
 - `ideas/<idea-id>/experiment-plan.md`
 - `projects/<project-id>/experiments/plans/*.md`
 
@@ -41,22 +52,27 @@ Artifacts:
 
 Turn evidence into a paper core and draft sections.
 
-Artifacts:
 - `ideas/<idea-id>/paper-core.md`
+- `projects/<project-id>/drafts/method.md`
+- `projects/<project-id>/drafts/method-code-map.md`
 - `projects/<project-id>/drafts/*.md`
 
 ## REVIEW
 
 Critique novelty, method, experiments, and paper story.
 
-Artifacts:
 - `reviews/critic-review.md`
 - `reviews/revision-plan.md`
+
+## PUBLISH
+
+Inspect, commit, and push intended code and artifacts to GitHub.
+
+- Verified GitHub repository, branch, and commit
 
 ## SUBMIT
 
 Prepare venue-specific submission, rebuttal, and camera-ready materials.
 
-Artifacts:
 - `reviews/rebuttal-plan.md`
 - `submission/checklist.md`

@@ -1,32 +1,37 @@
-# AGENTS.md — Research Agent Skills Router
+# Research Agent Skills Router
 
-Use this as the top-level instruction for agents that support project-level rules.
-
-## Always Start Here
-
-When a research task arrives, choose the smallest applicable workflow:
+Choose the smallest applicable workflow.
 
 ```text
-Need to decide what workflow applies?         → using-research-skills
-Raw idea / vague research direction?          → research-idea-refine
-Need literature / “has anyone done this?”     → literature-grounding
-Need novelty, gap, go/pivot/stop?             → gap-and-novelty-review
-Need method / research framework?             → research-framework-design
-Need datasets, baselines, metrics?            → experiment-planning
-Need paper pitch, abstract, contributions?    → paper-core-writing
-Need full section drafting with evidence?      → evidence-based-writing
-Need daily/weekly/monthly logs?               → research-log-review
-Need project roadmap/progress?                → research-project-management
-Need adversarial review?                      → research-critic-review
-Need submission/rebuttal readiness?           → research-submission-readiness
+Unsure which workflow applies?                 -> using-research-skills
+Clone, create, or push a GitHub repository?    -> github-repository-operations
+Extract a research idea from existing code?    -> code-to-research-idea
+Refine a raw research direction?               -> research-idea-refine
+Read, summarize, or compare papers?            -> paper-reading-and-synthesis
+Ground a named idea/project in literature?     -> literature-grounding
+Assess novelty or go/pivot/stop?                -> gap-and-novelty-review
+Design the research framework?                 -> research-framework-design
+Plan datasets, baselines, metrics, ablations?  -> experiment-planning
+Write pitch, abstract, contributions, outline? -> paper-core-writing
+Write a Method section aligned with code?      -> research-method-writing
+Write other evidence-grounded sections?        -> evidence-based-writing
+Maintain research logs?                        -> research-log-review
+Manage roadmap and progress?                   -> research-project-management
+Run adversarial review?                        -> research-critic-review
+Prepare submission or rebuttal?                -> research-submission-readiness
 ```
 
 ## Global Rules
 
-1. Do not invent papers, DOIs, venues, citations, experimental results, or code behavior.
-2. Surface assumptions before turning ambiguous ideas into confident plans.
-3. Treat “novel” as unproven until closest-work search is complete.
-4. Keep logs independent from projects unless the user explicitly links them.
-5. Write concrete artifacts: `idea.md`, `literature-search.md`, `gap-analysis.md`, `framework.md`, `experiment-plan.md`, `paper-core.md`, `daily.md`, `weekly.md`.
-6. Every output should name the next smallest useful action.
-7. When evidence is missing, label statements as hypotheses, not facts.
+1. Do not invent papers, citations, results, code behavior, or repository state.
+2. Separate known facts, code observations, inferences, hypotheses, and plans.
+3. Treat novelty as unproven until closest-work search is complete.
+4. Anchor code claims to files, symbols, configs, tests, or logs.
+5. Distinguish third-party code from project-owned contributions.
+6. Classify work as independent, idea-linked, or project-linked before choosing
+   artifacts. Generic paper reading and topic surveys are independent by
+   default; recent project context alone does not create a link.
+6. Default GitHub clones to `--depth=1` unless history is needed.
+7. Never expose credentials or publish secrets, private data, licensed datasets, or large artifacts unintentionally.
+8. Do not force-push, rewrite history, or overwrite remotes unless explicitly requested.
+9. Create concrete artifacts and end with the next smallest useful action.
