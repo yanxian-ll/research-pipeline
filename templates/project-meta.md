@@ -1,36 +1,23 @@
-# <项目名称>
+---
+type: project
+id:
+title:
+status: planning
+created_at:
+updated_at:
+active_idea:
+linked_ideas: []
+linked_papers: []
+target_venue:
+deadline:
+---
 
-- **项目 ID**: <project-id>
-- **状态**: ideas | literature | experiment | writing | review | submitted
-- **开始日期**: YYYY-MM-DD
-- **目标会议/期刊**: 
-- **关键词**: 
+# Project: <title>
 
-## 研究问题
-
-（1-2 句话描述核心研究问题）
-
-## 研究假设
-
-1. H1: 
-2. H2: 
-
-## 预期贡献
-
-1. 
-2. 
-
-## 时间线
-
-| 阶段 | 计划时间 | 实际时间 | 状态 |
-|------|----------|----------|------|
-| 文献综述 | | | |
-| Idea 确认 | | | |
-| 实验设计 | | | |
-| 实验执行 | | | |
-| 论文撰写 | | | |
-| 投稿 | | | |
-
-## 相关项目
-
-- （如有合作或关联项目）
+## Summary
+## Research Problem
+## Motivation
+## Target Venue
+## Timeline
+## Current Status
+## Important Links

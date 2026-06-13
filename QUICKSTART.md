@@ -1,206 +1,70 @@
-# Research Pipeline 快速开始
+# Quick Start
 
-## 5 分钟上手
+## 1. Choose a command
 
-### 1. 初始化工作区（首次使用）
-
-```
-帮我设置科研工作区，路径 ~/research-hub
-```
-
-### 2. 新建研究项目
-
-```
-新建项目「基于 Transformer 的遥感影像分类」
+```text
+/idea  输入一个研究想法
+/lit   基于当前 idea 查文献
+/gap   找研究空白和新颖性风险
+/frame 构建研究框架
+/exp   规划实验
+/paper 生成论文核心思路
+/log   写日报/周报/月报
 ```
 
-**推荐**: 创建项目时同时上传到 GitHub，方便同步和备份
+## 2. Start from a raw idea
 
-```
-新建项目「基于 Transformer 的遥感影像分类」并上传 github
-```
-
-### 3. 设置研究方向（重要！）
-
-```
-设置研究方向
+```text
+/idea 我想研究多模态大模型在遥感变化检测中的应用
 ```
 
-交互式配置研究背景、问题、技术栈、目标等。
+The agent should use `research-idea-refine` and produce:
 
-### 4. 连接第三方代码
+- research question
+- assumptions
+- variants
+- recommended direction
+- not-doing list
+- next action
 
-```
-连接 github https://github.com/facebookresearch/map-anything
-```
+## 3. Ground it in literature
 
-克隆相关代码仓库到项目中，方便阅读和复现。
-
-### 5. 查找文献
-
-```
-查找关于 Vision Transformer 在遥感中应用的文献
-```
-
-### 6. 分析 Idea
-
-```
-我的想法是用 Swin Transformer 做多光谱影像分类，帮我分析一下
+```text
+/lit 基于当前 idea 查最近三年的相关文献，并找最接近工作
 ```
 
-### 7. 写日报（自动总结）
+The agent should use `literature-grounding` and produce:
 
-```
-写日报
-```
+- search queries
+- candidate paper matrix
+- closest-work comparison
+- novelty risk
+- baselines/datasets
 
-系统会自动扫描今日聊天历史，智能分类总结：
-- **科研项目相关**: 文献阅读、实验进展、论文写作等
-- **其他工作**: 工具开发、技能制作、系统配置等
+## 4. Decide whether to continue
 
-### 8. 同步项目到 GitHub
-
-```
-同步项目到 github
+```text
+/gap 判断这个 idea 是否值得继续做
 ```
 
-将当前项目推送到 GitHub 进行在线备份。
+The agent should use `gap-and-novelty-review` and output:
 
-### 9. 写周报
+- Go / Pivot / Stop / Need More Literature
+- concrete reasons
+- next actions
 
-```
-写本周总结
-```
+## 5. Build toward a paper
 
-### 10. 开始写论文
-
-```
-开始写论文，目标是 IEEE TGRS
-```
-
-## 常用命令
-
-| 你说 | 我做 |
-|------|------|
-| 新建项目 X | 创建项目目录和元信息 |
-| **新建项目 X 并上传 github** | **初始化项目并创建 GitHub 仓库** |
-| 切换项目 X | 更新活跃项目 |
-| **设置研究方向** | **交互式配置研究方向（重要！）** |
-| **更新研究方向** | **更新研究方向的特定字段** |
-| **查看研究方向** | **显示当前研究方向配置** |
-| 查找文献 X | 执行文献搜索并保存笔记 |
-| 分析 idea | 启动 Socratic 对话分析 |
-| 写日报 | 自动扫描聊天历史，智能分类总结 |
-| 写日报 论文A、论文B | 自动检索论文并生成文献阅读日报 |
-| 记录文献：论文A、论文B | 仅记录文献到日报 |
-| 写周报 | 汇总本周日报生成周报 |
-| **基于代码编写论文方法** | **分析代码仓库，生成方法部分草稿** |
-| **分析代码写方法部分** | **同上，更口语化的表达** |
-| **从代码生成方法章节** | **同上** |
-| **查找目标期刊的latex模板** | **自动下载目标期刊的LaTeX模板** |
-| **使用模板写论文** | **基于模板交互式编写论文** |
-| **交互式编写论文** | **同上，更口语化的表达** |
-| **设置论文模板 <path>** | **手动指定模板路径** |
-| 项目进度 | 显示当前项目状态 |
-| 列出项目 | 显示所有项目 |
-| **连接 github <url>** | **克隆第三方仓库到项目** |
-| **拉取代码 <url>** | **同上，更口语化的表达** |
-| **同步 github** | **更新所有第三方仓库** |
-| **查看依赖** | **列出所有已克隆的第三方仓库** |
-| **同步项目到 github** | **将当前项目推送到 GitHub** |
-| **推送项目** | **同上，更口语化的表达** |
-| **备份项目** | **同上** |
-| **克隆项目 <url>** | **从 GitHub 克隆已有项目** |
-| **拉取项目** | **更新本地项目到最新版本** |
-
-## ⚡ 快速上手：设置研究方向
-
-**第一次使用时，务必先设置研究方向！** 这样我才能快速了解你的研究目标。
-
-```
-你：设置研究方向
-
-我：[交互式询问研究背景、问题、技术栈、目标等]
-    [生成 direction.md 文件]
+```text
+/frame 生成研究框架
+/exp 设计实验计划
+/paper 生成 one-sentence pitch、contribution 和 abstract
 ```
 
-**后续更新**：
-```
-你：更新研究方向 技术栈：使用Transformer+CNN混合架构
-你：更新研究方向 目标会议：CVPR 2026
-你：更新研究方向 当前进展：完成文献综述
-```
+## 6. Keep logs independent
 
-**快速了解项目**：
-```
-你：快速了解项目
-我：[读取 direction.md 并总结当前研究状态]
+```text
+/log 写本周跨项目研究周报，不要只围绕项目
 ```
 
-## 文献阅读日报示例
-
-```
-你：写日报 Transformer-Based Remote Sensing Image Classification, 
-    Attention Mechanisms for Change Detection, 
-    Deep Learning in Urban Scene Understanding
-
-我：[自动检索这3篇论文，提取关键信息，生成结构化日报]
-```
-
-日报会包含：
-- 每篇论文的核心贡献、方法、关键结果
-- 与当前项目的关联度评分
-- 可复用的代码/资源链接
-- 基于项目方向的个性化分析
-
-## 工作流示意
-
-```
-┌─────────────┐
-│  新建项目    │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  文献查找    │ ← deep-research, nature-academic-search
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  Idea 分析   │ ← Socratic 对话
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  连接 GitHub │ ← 克隆相关代码仓库
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  实验设计    │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  论文撰写    │ ← academic-paper, nature-writing
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  审稿修改    │ ← academic-paper-reviewer
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  投稿准备    │ ← nature-paper2ppt (答辩PPT)
-└─────────────┘
-
-每日/每周：
-┌─────────────────────────────────────────────────┐
-│  写日报 论文A、论文B、论文C                       │
-│      ↓                                          │
-│  自动检索论文 → 提取关键内容 → 生成结构化日报     │
-│      ↓                                          │
-│  保存到 daily/YYYY-MM-DD.md + literature/notes/  │
-└─────────────────────────────────────────────────┘
-```
+The agent should use `research-log-review` and include project work, idea work, literature, non-project work, decisions, blockers, and next strategy.
