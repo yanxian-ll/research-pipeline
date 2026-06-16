@@ -32,7 +32,11 @@ Search literature and identify closest work.
 
 - `ideas/<idea-id>/literature-search.md`
 - `knowledge/papers/<paper-id>.md`
+- `knowledge/papers/<paper-id>-deep-read.md`
 - `projects/<project-id>/literature/matrix.md`
+
+Use `paper-deep-reading` before grounding when one paper must be understood
+from its starting problem through method derivation and experimental evidence.
 
 ## FRAME
 

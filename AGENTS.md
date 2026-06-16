@@ -8,6 +8,7 @@ Clone, create, or push a GitHub repository?    -> github-repository-operations
 Extract a research idea from existing code?    -> code-to-research-idea
 Refine a raw research direction?               -> research-idea-refine
 Read, summarize, or compare papers?            -> paper-reading-and-synthesis
+Deep-read one paper from motivation to evidence? -> paper-deep-reading
 Ground a named idea/project in literature?     -> literature-grounding
 Assess novelty or go/pivot/stop?                -> gap-and-novelty-review
 Design the research framework?                 -> research-framework-design

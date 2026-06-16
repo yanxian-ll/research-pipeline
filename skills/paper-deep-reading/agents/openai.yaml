@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paper Deep Reading"
+  short_description: "Read papers from motivation through evidence"
+  default_prompt: "Use $paper-deep-reading to deeply read this paper from its starting problem through method derivation and evidence."

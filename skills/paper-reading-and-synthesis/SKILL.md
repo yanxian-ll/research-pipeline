@@ -1,9 +1,25 @@
 ---
 name: paper-reading-and-synthesis
-description: Reads, summarizes, compares, and synthesizes academic papers as an independent research activity or within an explicitly named project. Use when the user asks to read a paper, summarize papers, compare methods, explain a paper family, create reading notes, or write a topic survey. Determine scope before writing: default to independent knowledge artifacts unless the user explicitly links the request to a project, idea, experiment, or manuscript.
+description: Reads, summarizes, compares, and synthesizes academic papers as an independent research activity or within an explicitly named project. Use for concise paper summaries, multi-paper comparisons, method-family explanations, reading notes, and topic surveys. Use paper-deep-reading instead when the user asks for 精读/深读, problem-first method derivation, detailed figure/table/ablation analysis, or reproduction-level understanding. Default to independent artifacts unless explicitly linked to a project, idea, experiment, or manuscript.
 ---
 
 # Paper Reading and Synthesis
+
+## Overview
+
+Produce concise, source-grounded paper notes, comparisons, and topic
+syntheses. Preserve independent research scope unless the user explicitly
+links the reading to an idea or project.
+
+## When to Use
+
+- Summarizing one or more papers without reproduction-level detail.
+- Comparing methods on a consistent matrix.
+- Explaining a paper family or writing a topic survey.
+- Recording independent literature in a research log.
+
+Use `paper-deep-reading` when the request requires a problem-first causal
+reconstruction, detailed figures/tables/ablations, or reproduction guidance.
 
 ## Scope Decision
 
@@ -53,6 +69,10 @@ without that decision, create an independent artifact and leave it unlinked.
    company announcements.
 7. Write to the artifact location determined by scope.
 
+For problem-first close reading of one paper, hand off to
+`paper-deep-reading`; do not stretch this summary workflow into a section-by-
+section pseudo-deep-read.
+
 ## Artifacts
 
 Independent:
@@ -93,6 +113,23 @@ Include project implications only for project-linked scope.
 - Do not treat company marketing material as equivalent to a paper.
 - Do not claim a paper was fully read when only metadata or an abstract was
   available.
+
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "Nearby project context implies linkage." | Independent reading stays independent unless linkage is explicit. |
+| "More detail always improves a summary." | Use `paper-deep-reading` when causal reconstruction is required. |
+| "The abstract is enough." | Method, experiments, and limitations are needed for verified paper notes. |
+| "Separate mini-summaries form a comparison." | Multi-paper work needs a shared comparison matrix. |
+
+## Red Flags
+
+- Writing project implications for an independent request.
+- Comparing papers with inconsistent dimensions.
+- Treating author claims as verified findings.
+- Hiding unavailable full text or appendices.
+- Using this skill for a requested deep reading.
 
 ## Verification
 

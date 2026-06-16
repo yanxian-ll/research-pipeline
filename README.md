@@ -21,6 +21,7 @@ This pack restructures a research pipeline as a set of small, composable skills 
 | Extract a research idea from code | `/code-idea` | `code-to-research-idea` | Code evidence before research claims |
 | Capture or refine a raw research idea | `/idea` | `research-idea-refine` | Idea before project |
 | Read, summarize, or compare papers | `/read-paper` | `paper-reading-and-synthesis` | Independent by default |
+| Deep-read one paper from motivation to evidence | `/deep-read-paper` | `paper-deep-reading` | Independent by default |
 | Ground a named idea/project in literature | `/lit` | `literature-grounding` | Evidence before claims |
 | Find novelty and research gaps | `/gap` | `gap-and-novelty-review` | Closest work first |
 | Design the research framework | `/frame` | `research-framework-design` | Hypothesis before architecture |
@@ -42,6 +43,7 @@ This pack restructures a research pipeline as a set of small, composable skills 
 | Define | `research-idea-refine` | Raw idea, vague direction, paper-worthiness |
 | Define | `research-context-engineering` | Need the right context packet |
 | Read | `paper-reading-and-synthesis` | Need paper notes, explanations, comparisons, or topic surveys |
+| Deep read | `paper-deep-reading` | Need problem-first derivation, figures/tables/ablations, or reproduction-level understanding |
 | Ground | `literature-grounding` | Need prior work, baselines, or closest work for a named idea/project |
 | Ground | `gap-and-novelty-review` | Need gap, novelty risk, go/pivot/stop |
 | Frame | `research-framework-design` | Need research framework or method design |

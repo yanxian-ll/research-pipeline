@@ -33,21 +33,24 @@ the most recently discussed project.
    experiments, draft, or submission.
 7. Map the task to: read/synthesize, acquire, extract/define, ground, frame,
    verify, write, review, publish/submit.
-8. Use `paper-reading-and-synthesis` for independent paper reading, summaries,
-   comparisons, and topic surveys.
-9. Use `literature-grounding` when literature is being used to assess a named
+8. Use `paper-deep-reading` for 精读/深读, problem-first explanation,
+   method derivation, figure/table/ablation auditing, or reproduction-level
+   understanding of one paper.
+9. Use `paper-reading-and-synthesis` for concise summaries, comparisons, and
+   topic surveys.
+10. Use `literature-grounding` when literature is being used to assess a named
    idea or project's novelty, baselines, claims, or experiment design.
-10. For GitHub acquisition or publication, use
+11. For GitHub acquisition or publication, use
     `github-repository-operations`; default clones to `--depth=1`.
-11. For existing code, use `code-to-research-idea`, then
+12. For existing code, use `code-to-research-idea`, then
     `literature-grounding` and `gap-and-novelty-review` before asserting
     novelty.
-12. For a Method section grounded in implementation, use
+13. For a Method section grounded in implementation, use
     `research-method-writing`; use `evidence-based-writing` for other
     evidence-grounded sections.
-13. State the selected scope, skill sequence, and assumptions.
-14. Create or update the smallest useful artifact in the matching scope.
-15. End with verification and the next smallest action.
+14. State the selected scope, skill sequence, and assumptions.
+15. Create or update the smallest useful artifact in the matching scope.
+16. End with verification and the next smallest action.
 
 ## Artifacts
 
